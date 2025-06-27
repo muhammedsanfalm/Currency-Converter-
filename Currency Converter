@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+
+from forex_python.converter import CurrencyRates
+
+def convert_currency(amount, from_currency, to_currency):
+    c = CurrencyRates()
+    try:
+        result = c.convert(from_currency.upper(), to_currency.upper(), amount)
+        print(f"{amount} {from_currency.upper()} = {result:.2f} {to_currency.upper()}")
+        print("Conversion successful!")
+    except Exception as e:
+        print("Error:", e)
+
+if __name__ == "__main__":
+    print("Welcome to the Real-Time Currency Converter\n")
+    try:
+        amount = float(input("Enter the amount to convert: "))
+        from_currency = input("From Currency (e.g., USD): ")
+        to_currency = input("To Currency (e.g., INR): ")
+
+        convert_currency(amount, from_currency, to_currency)
+    except ValueError:
+        print("Invalid amount, please enter a numeric value.")
+
+
+
